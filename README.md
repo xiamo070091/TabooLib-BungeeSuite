@@ -24,7 +24,7 @@ TBukkitChannelTask.createTask()
 ```java
 @EventHandler
 public void onCommand(BungeeCommandEvent e) {
-    if (e.getString(0, "null").equalsIgnoreCase("Hello World!)) {
+    if (e.getString(0, "null").equalsIgnoreCase("Hello World!")) {
         // 返回信息
         e.response(e.getSender().getName());
     }
@@ -39,7 +39,7 @@ public void onCommand(BungeeCommandEvent e) {
 TBungeeChannel channel = TabooLibBungee.getInstace().getBungeeChannel();
 TBungeeChannelTask.createTask()
     .channel(channel)
-    .sender(BungeeCord.getInstace().getPlayer("BlackSKY"))
+    .target(BungeeCord.getInstace().getPlayer("BlackSKY"))
     .command("Hello BlackSKY!")
     .result(result -> BungeeCord.getInstace().getProxy().getLogger().info("Hello: " + result[0]))
     .run();
@@ -47,8 +47,8 @@ TBungeeChannelTask.createTask()
 **Bukkit** 部分:
 ```java
 @EventHandler
-public void onCommand(BungeeCommandEvent e) {
-    if (e.getString(0, "null").equalsIgnoreCase("Hello BlackSKY!)) {
+public void onCommand(BukkitCommandEvent e) {
+    if (e.getString(0, "null").equalsIgnoreCase("Hello BlackSKY!")) {
         // 返回信息
         e.response("BungeeCord");
     }
